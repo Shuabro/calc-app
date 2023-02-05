@@ -1,23 +1,43 @@
 .button {
-    background-color:#3e66a8; /* blue */
-    border: 1px;
-    color: #ffffff;
-    padding: 20px;
-    text-align: center;
-    text-decoration: none;
-    font-size: 20px;
-    cursor: pointer;
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-    caret-color: transparent;
-  }
+  background-color:#3e66a8; /* blue */
+  border: 1px;
+  color: #ffffff;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 20px;
+  cursor: pointer;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  caret-color: transparent;
+}
 
-  .button:hover{
-    background-color: #305082;
-  }
+.button:hover{
+  background-color: #395889;
+}
 
-  .focus {
-    background: rgb(234, 234, 31);
-    color: rgb(254, 243, 243);
-    border: 1px solid red;
-    }
+.button:active {
+  transform: scale(0.98);
+  /* Scaling button to 0.98 to its original size */
+  /* Lowering the shadow */
+}
 
+.button:focus {
+  outline: none;
+}
+
+.result-window{
+  width: 100%;
+  padding: 5px;
+  margin-bottom: 40px;
+  font-size: 1.6em;
+  min-width: auto;
+  min-height: 30px;
+  text-align: right;
+  border-style: inset;
+  font-family: Digital;
+}
+
+@font-face {
+font-family: 'Digital';
+src: url('../input/digital-7-font/Digital7-rg1mL.ttf');
+}
