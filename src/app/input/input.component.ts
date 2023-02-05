@@ -7,4 +7,14 @@ import { Component } from '@angular/core';
 })
 export class InputComponent {
 
+  result: string = '0';
+
+ onClick(value: string){
+  if (value == "C"){
+    this.result = "0";
+
+  };
+
+ }
+
 }

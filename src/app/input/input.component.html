@@ -1,28 +1,33 @@
+
+
+<div class="result-window" type="text">{{result}}</div>
+
   <div class="container">
     <div class="row flew-row text-center">
-      <input class="button col-sm border" value="C" readonly>
-      <div class="button col-sm-3 border">/</div>
+      <input class="button col-sm-9 border" value="C" (click)="onClick('C')" readonly>
+      <input class="button col-sm border" value="/" (click)="onClick('/')" readonly>
     </div>
     <div class="row flew-row text-center">
-      <input class="button col-sm border" value="7" readonly>
-      <input class="button col-sm border" value="8" readonly>
-      <input class="button col-sm border" value="9" readonly>
-      <input class="button col-sm border" value="x" readonly>
+      <input class="button col-sm border" value="7" (click)="onClick('7')" readonly>
+      <input class="button col-sm border" value="8" (click)="onClick('8')" readonly>
+      <input class="button col-sm border" value="9" (click)="onClick('9')" readonly>
+      <input class="button col-sm border" value="x" (click)="onClick('x')" readonly>
     </div>
     <div class="row flew-row text-center">
-      <input class="button col-sm border" value="4" readonly>
-      <input class="button col-sm border" value="5" readonly>
-      <input class="button col-sm border" value="6" readonly>
-      <input class="button col-sm border" value="-" readonly>
+      <input class="button col-sm border" value="4" (click)="onClick('4')" readonly>
+      <input class="button col-sm border" value="5" (click)="onClick('5')" readonly>
+      <input class="button col-sm border" value="6" (click)="onClick('6')" readonly>
+      <input class="button col-sm border" value="-" (click)="onClick('-')" readonly>
     </div>
     <div class="row flew-row text-center">
-      <input class="button col-sm border" value="1" readonly>
-      <input class="button col-sm border" value="2" readonly>
-      <input class="button col-sm border" value="3" readonly>
-      <input class="button col-sm border" value="+" readonly>
+      <input class="button col-sm border" value="1" (click)="onClick('1')" readonly>
+      <input class="button col-sm border" value="2" (click)="onClick('2')" readonly>
+      <input class="button col-sm border" value="3" (click)="onClick('3')" readonly>
+      <input class="button col-sm border" value="+" (click)="onClick('+')" readonly>
     </div>
     <div class="row text-center">
-      <input class="button col-sm border" value="0" readonly>
-      <input class="button col-sm-3  border" value="=" readonly>
+      <input class="button col-sm-6 border" value="0" (click)="onClick('0')" readonly>
+      <input class="button col-sm border" value="." (click)="onClick('.')" readonly>
+      <input class="button col-sm  border" value="=" (click)="onClick('=')" readonly>
     </div>
-</div>
+  </div>
