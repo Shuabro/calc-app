@@ -10,8 +10,6 @@ body {
   font-family: "Poppins", sans-serif;
 }
 
-
-
 .mt-4{
   margin-top: 100px;
 }
@@ -23,7 +21,7 @@ body {
   margin:  100px auto;
   overflow: auto;
   min-height: 500px;
-  border: 1px solid rgb(77, 13, 13);
-  padding: 30px;
-  border-radius: 5px;
+  border: 2px solid rgb(197, 200, 205);
+  padding: 40px;
+  border-radius: 3px;
 }
