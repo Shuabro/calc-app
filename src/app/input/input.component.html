@@ -1,33 +1,33 @@
 
-
-<div class="result-window" type="text">{{result}}</div>
+<div class="answer-preview">{{placeholder}}</div>
+<div class="result-window">{{result}}</div>
 
   <div class="container">
     <div class="row flew-row text-center">
-      <input class="button col-sm-9 border" value="C" (click)="onClick('C')" readonly>
-      <input class="button col-sm border" value="/" (click)="onClick('/')" readonly>
+      <input class="button col-sm-9 border" value="C" (click)="clear()" readonly>
+      <input class="button col-sm border" value="/" (click)="clickOperand('/')" readonly>
     </div>
     <div class="row flew-row text-center">
-      <input class="button col-sm border" value="7" (click)="onClick('7')" readonly>
-      <input class="button col-sm border" value="8" (click)="onClick('8')" readonly>
-      <input class="button col-sm border" value="9" (click)="onClick('9')" readonly>
-      <input class="button col-sm border" value="x" (click)="onClick('x')" readonly>
+      <input class="button col-sm border" value="7" (click)="clickNum('7')" readonly>
+      <input class="button col-sm border" value="8" (click)="clickNum('8')" readonly>
+      <input class="button col-sm border" value="9" (click)="clickNum('9')" readonly>
+      <input class="button col-sm border" value="x" (click)="clickOperand('x')" readonly>
     </div>
     <div class="row flew-row text-center">
-      <input class="button col-sm border" value="4" (click)="onClick('4')" readonly>
-      <input class="button col-sm border" value="5" (click)="onClick('5')" readonly>
-      <input class="button col-sm border" value="6" (click)="onClick('6')" readonly>
-      <input class="button col-sm border" value="-" (click)="onClick('-')" readonly>
+      <input class="button col-sm border" value="4" (click)="clickNum('4')" readonly>
+      <input class="button col-sm border" value="5" (click)="clickNum('5')" readonly>
+      <input class="button col-sm border" value="6" (click)="clickNum('6')" readonly>
+      <input class="button col-sm border" value="-" (click)="clickOperand('-')" readonly>
     </div>
     <div class="row flew-row text-center">
-      <input class="button col-sm border" value="1" (click)="onClick('1')" readonly>
-      <input class="button col-sm border" value="2" (click)="onClick('2')" readonly>
-      <input class="button col-sm border" value="3" (click)="onClick('3')" readonly>
-      <input class="button col-sm border" value="+" (click)="onClick('+')" readonly>
+      <input class="button col-sm border" value="1" (click)="clickNum('1')" readonly>
+      <input class="button col-sm border" value="2" (click)="clickNum('2')" readonly>
+      <input class="button col-sm border" value="3" (click)="clickNum('3')" readonly>
+      <input class="button col-sm border" value="+" (click)="clickOperand('+')" readonly>
     </div>
     <div class="row text-center">
-      <input class="button col-sm-6 border" value="0" (click)="onClick('0')" readonly>
-      <input class="button col-sm border" value="." (click)="onClick('.')" readonly>
-      <input class="button col-sm  border" value="=" (click)="onClick('=')" readonly>
+      <input class="button col-sm-6 border" value="0" (click)="clickNum('0')" readonly>
+      <input class="button col-sm border" value="." (click)="clickNum('.')" readonly>
+      <input class="button col-sm  border" value="=" (click)="calculate()" readonly>
     </div>
   </div>

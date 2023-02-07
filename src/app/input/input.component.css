@@ -25,6 +25,12 @@
   outline: none;
 }
 
+.answer-preview{
+  text-align: right;
+  width: 100%;
+  color: rgb(167, 163, 163);
+}
+
 .result-window{
   width: 100%;
   padding: 5px;
