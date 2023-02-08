@@ -9,40 +9,62 @@ import { first, last } from 'rxjs';
 export class InputComponent {
 
   result: string = '0';
-  input1: string = '';
-  input2: string = '';
   placeholder: string = '0';
   answer : string = '';
   lastKey: string = 'no';
   operandKey: string = '';
   decpoint: boolean = true;
+  calcd: boolean = false;
+  opRegulator: boolean = false;
 
   clickNum(value: string)
   {
-   // This if statement makes sure that 0 isn't the first digit
-    if (this.result == '0')
-    {
-      this.result = value;
-      this.placeholder = value;
-    }
-    else if(this.operandKey == this.lastKey)
-    {
-      this.result = value;
-      this.placeholder = this.placeholder + value;
-      this.operandKey = '';
-      this.decpoint = true;
 
-    }
-    else 
+    if (this.result.length > 8 && this.operandKey != this.lastKey)
     {
-      this.result = this.result + value;
-      this.placeholder = this.placeholder + value;
+      alert("Digit limit reached")
+      // this.result = this.result.substring(0, this.result.length-1)
     }
+    else
+    {
+      if (this.calcd)
+      {
+        if (this.result != "0")
+          return;
+        return;
+      }
+      
+    // This if statement makes sure that 0 isn't the first digit
+      if (this.result == '0')
+      {
+        this.result = value;
+        this.placeholder = value;
+      }
+      else if(this.operandKey == this.lastKey)
+      {
+        this.result = value;
+        this.placeholder = this.placeholder + value;
+        this.operandKey = '';
+        this.decpoint = true;
 
-    //Uses ngif to toggle decimal use
-    if(value == '.')
-    {
-      this.decpoint = false;
+      }
+      else 
+      {
+        this.placeholder = this.placeholder + value;
+        if (this.opRegulator)
+        {
+          this.result = value;
+          this.opRegulator = false;
+        }
+        else
+          this.result = this.result + value;
+      }
+
+      //Uses ngif to toggle decimal use
+      if(value == '.')
+      {
+        this.decpoint = false;
+      }
     }
 
     
@@ -51,32 +73,51 @@ export class InputComponent {
 
   clear()
   {
-    this.input1 = '';
-    this.input2 = '';
+    
     this.lastKey = 'no';
     this.operandKey = '';
     this.result = '0';
-    this.placeholder = '';
+    this.placeholder = '0';
+    this.calcd = false;
     this.decpoint = true;
 
   }
 
   clickOperand(operand: string)
   {
-    this.placeholder = this.result + operand;
-    this.lastKey = operand;
-    this.operandKey = this.placeholder.charAt(this.placeholder.length-1)
+    this.calcd = false;
+    if (this.lastKey == 'no')
+    {
+      this.lastKey = operand;
+      this.placeholder = this.result + operand;
+      this.operandKey = this.placeholder.charAt(this.placeholder.length-1)
+      
+    }
+    else
+    {
+      
+      this.result = eval(this.placeholder)
+      this.placeholder = this.result + operand;
+      this.opRegulator = true;
+      
+    }
     
-
 
   }
 
   calculate()
   {
-    var firstDigit: string = this.placeholder.substring(0, this.placeholder.indexOf(this.lastKey))
-    console.log(firstDigit);
-    this.result = eval(this.placeholder);
-    
+    if (this.result == "0")
+    {
+      alert("Stop trying to break my app!")
+    }
+    else 
+    {
+      var firstDigit: string = this.placeholder.substring(0, this.placeholder.indexOf(this.lastKey))
+      console.log(firstDigit);
+      this.result = eval(this.placeholder);
+      this.calcd = true;
+    }
   }
  
 
