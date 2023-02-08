@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { last } from 'rxjs';
+import { first, last } from 'rxjs';
 
 @Component({
   selector: 'app-input',
@@ -11,51 +11,53 @@ export class InputComponent {
   result: string = '0';
   input1: string = '';
   input2: string = '';
-  placeholder: string = '';
+  placeholder: string = '0';
   answer : string = '';
-  lastKey: string = '';
+  lastKey: string = 'no';
   operandKey: string = '';
+  decpoint: boolean = true;
 
-  clickNum(value: string){
-    
-    if (this.input1 == '')
+  clickNum(value: string)
+  {
+   // This if statement makes sure that 0 isn't the first digit
+    if (this.result == '0')
     {
-      this.input1 = value;
-      this.result = this.input1;
+      this.result = value;
       this.placeholder = value;
     }
+    else if(this.operandKey == this.lastKey)
+    {
+      this.result = value;
+      this.placeholder = this.placeholder + value;
+      this.operandKey = '';
+      this.decpoint = true;
 
-    else if (this.input2 == '')
+    }
+    else 
     {
       this.result = this.result + value;
       this.placeholder = this.placeholder + value;
     }
 
-    else
+    //Uses ngif to toggle decimal use
+    if(value == '.')
     {
-      this.placeholder = this.placeholder + value;
-      this.result = this.result + value;
+      this.decpoint = false;
     }
-
-    if (this.lastKey === "/" || this.lastKey ===  "x" || this.lastKey === "-" || this.lastKey === "+") 
-    {
-      this.input2 = value;
-      this.result = this.input2;
-      this.operandKey = this.lastKey;
-    }
-
 
     
-
+    
   }
 
   clear()
   {
     this.input1 = '';
     this.input2 = '';
-    this.lastKey = '';
+    this.lastKey = 'no';
+    this.operandKey = '';
     this.result = '0';
     this.placeholder = '';
+    this.decpoint = true;
 
   }
 
@@ -63,22 +65,18 @@ export class InputComponent {
   {
     this.placeholder = this.result + operand;
     this.lastKey = operand;
+    this.operandKey = this.placeholder.charAt(this.placeholder.length-1)
+    
 
 
   }
 
   calculate()
   {
-    if (this.answer == ''){
-      this.answer = eval(this.placeholder);
-      this.result = this.answer;
-    }
-
-    else {
-      console.log(this.input2);
-      this.placeholder = this.result + this.operandKey + this.input2;
-      this.result = eval(this.placeholder);
-    }
+    var firstDigit: string = this.placeholder.substring(0, this.placeholder.indexOf(this.lastKey))
+    console.log(firstDigit);
+    this.result = eval(this.placeholder);
+    
   }
  
 

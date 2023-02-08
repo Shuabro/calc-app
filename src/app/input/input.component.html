@@ -11,7 +11,7 @@
       <input class="button col-sm border" value="7" (click)="clickNum('7')" readonly>
       <input class="button col-sm border" value="8" (click)="clickNum('8')" readonly>
       <input class="button col-sm border" value="9" (click)="clickNum('9')" readonly>
-      <input class="button col-sm border" value="x" (click)="clickOperand('x')" readonly>
+      <input class="button col-sm border" value="x" (click)="clickOperand('*')" readonly>
     </div>
     <div class="row flew-row text-center">
       <input class="button col-sm border" value="4" (click)="clickNum('4')" readonly>
@@ -27,7 +27,10 @@
     </div>
     <div class="row text-center">
       <input class="button col-sm-6 border" value="0" (click)="clickNum('0')" readonly>
-      <input class="button col-sm border" value="." (click)="clickNum('.')" readonly>
+      <input *ngIf="decpoint" class="button col-sm border" value="." (click)="clickNum('.')" readonly>
+      <ng-template [ngIf]="!decpoint">
+        <input class="button col-sm border" value="."  readonly>
+      </ng-template>
       <input class="button col-sm  border" value="=" (click)="calculate()" readonly>
     </div>
   </div>
